@@ -1,0 +1,277 @@
+/* Importação da Fonte do Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        /* Paleta de Cores Baseada no Logo */
+        :root {
+            --mango-orange: #FFA500; 
+            --mango-yellow: #FFD700; 
+            --leaf-green: #2E8B57;   
+            --text-brown: #6D4C41;   
+            --background-light: #FFF8E1;
+            --white: #FFFFFF;
+            --gray: #f4f4f4;
+        }
+
+        /* Reset Básico e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-brown);
+            background-color: var(--background-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; text-align: center; }
+        p { margin-bottom: 15px; }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* --- Cabeçalho e Navegação --- */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 90px;
+        }
+
+        /* Barra interna que controla espaçamento horizontal */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-brown);
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 90px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover suave para destaque */
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsividade: reduzir a logo em telas pequenas */
+        @media (max-width: 480px) {
+            .logo img {
+                --logo-width: 40px;
+            }
+            .nav-links li { margin-left: 15px; }
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-brown);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--mango-orange);
+        }
+
+        /* --- Seção Principal (Hero) --- */
+        #hero {
+            background: linear-gradient(rgba(255, 248, 225, 0.8), rgba(255, 248, 225, 0.8)), url('https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-outline.png');
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            color: var(--text-brown);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(45deg, var(--mango-orange), var(--mango-yellow));
+            color: var(--text-brown);
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 165, 0, 0.6);
+        }
+
+        /* --- Seção de Problemas --- */
+        #problems {
+            background-color: var(--white);
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .problem-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .problem-card .icon {
+            font-size: 3rem;
+            color: var(--mango-orange);
+            margin-bottom: 15px;
+        }
+
+        /* --- Seção de Soluções (Serviços) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: var(--leaf-green);
+        }
+
+        /* --- Seção de Cases de Sucesso --- */
+        #cases {
+            background-color: var(--white);
+        }
+        
+        .testimonial {
+            max-width: 700px;
+            margin: 50px auto 0;
+            text-align: center;
+            padding: 30px;
+            background-color: var(--background-light);
+            border-left: 5px solid var(--mango-orange);
+            border-radius: 5px;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .testimonial .author {
+            font-weight: 600;
+            margin-top: 15px;
+            display: block;
+            color: var(--leaf-green);
+        }
+
+        /* --- Seção de Contato --- */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-form {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form .btn {
+            align-self: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* --- Rodapé (Footer) --- */
+        .footer {
+            background-color: var(--background-light);
+            color: var(--text-brown);
+            text-align: center;
+            padding: 10px 0;
+        }
+
