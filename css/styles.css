@@ -68,6 +68,7 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
+            padding: 0 20px;
         }
 
         .logo {
@@ -275,3 +276,126 @@
             padding: 10px 0;
         }
 
+        /* --- ESTILOS DO MENU HAMBURGUER --- */
+
+        /* 1. Estilo do botão (as 3 barrinhas) */
+        .menu-hamburger {
+            display: none; /* ESCONDIDO EM TELAS GRANDES */
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002; /* Garante que fique acima dos outros itens */
+        }
+
+        .menu-hamburger-bar {
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-brown);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* (Opcional) Animação do botão para virar um "X" quando ativo */
+        .menu-hamburger.active .menu-hamburger-bar:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 6px);
+        }
+        .menu-hamburger.active .menu-hamburger-bar:nth-child(2) {
+            opacity: 0;
+        }       
+        .menu-hamburger.active .menu-hamburger-bar:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+
+        /* --- ESTILOS RESPONSIVOS COMPLETOS --- */
+        @media (max-width: 768px) {
+
+        /* 1. Mostra o botão hambúrguer */
+        .menu-hamburger {
+            display: flex;
+        }
+
+        /* 2. Estiliza o menu de links para ficar ESCONDIDO */
+        .nav-links {
+        /* Fica por cima de tudo */
+            position: fixed; 
+            z-index: 1001;
+
+        /* Começa no topo (abaixo do header) e vai até o fim */
+            top: 90px; /* Altura do seu header */
+            right: 0;
+            height: calc(100vh - 90px); /* Altura total da tela - altura do header */
+        
+        /* Tamanho e cor */
+            width: 70%; /* Ocupa 70% da largura da tela */
+            max-width: 300px; /* Limite máximo */
+            background-color: var(--white);
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+
+        /* Organiza os links verticalmente */
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+            gap: 30px;
+
+        /* A MÁGICA: Joga o menu para fora da tela */
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* 3. A classe .active que o JavaScript vai adicionar */
+        .nav-links.active {
+        /* Traz o menu de volta para a tela */
+            transform: translateX(0);
+        }
+
+        /* --- Outros ajustes de layout --- */
+
+        /* 4. Ajustando a Seção Hero */
+        #hero {
+            min-height: 70vh;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        /* 5. Ajustando a Tipografia (Fontes) */
+        h1 { font-size: 2.2rem; }
+        h2 { font-size: 1.8rem; }
+        .hero-content p { font-size: 1.1rem; }
+
+        /* 6. Ajustando o Grid de Serviços */
+        .services-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        /* 7. Ajustando o Grid de Problemas */
+        .problems-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+        /* Ajuste final para telas bem pequenas */
+        @media (max-width: 480px) {
+        .logo img {
+            width: 70px; /* Reduz o logo */
+        }
+    
+        .nav-links {
+            top: 74px; /* Ajusta o menu para o novo tamanho do header */
+            height: calc(100vh - 74px);
+        }
+    
+        .header {
+            height: 74px; /* Ajusta o header */
+        }
+
+        h1 {
+            font-size: 1.9rem;
+        }
+    }
