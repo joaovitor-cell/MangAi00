@@ -91,14 +91,6 @@
             transform: scale(1.05);
         }
 
-        /* Responsividade: reduzir a logo em telas pequenas */
-        @media (max-width: 480px) {
-            .logo img {
-                --logo-width: 40px;
-            }
-            .nav-links li { margin-left: 15px; }
-        }
-
         .nav-links {
             list-style: none;
             display: flex;
@@ -398,4 +390,5 @@
         h1 {
             font-size: 1.9rem;
         }
+
     }
